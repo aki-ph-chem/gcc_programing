@@ -1,0 +1,2 @@
+# gcc_programing
+ふつうのLinuxプログラミングの勉強の記録
