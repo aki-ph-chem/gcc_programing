@@ -9,8 +9,9 @@ int main(void){
 
     char string[] = "Hello\n";
 
-    fwrite(string,sizeof(string),1,stdout);
+    if(fwrite(string,sizeof(string),1,stdout) != 1){
 
-    if(errno != 0) exit(1);
+	if(errno != 0)exit(1);
+    }
 
 }
