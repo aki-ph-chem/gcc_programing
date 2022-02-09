@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<errno.h>
 
-#define BUFF_SIZE 1024
+#define BUFF_SIZE 1024 
 
 int main(void){
 
@@ -10,7 +10,7 @@ int main(void){
 
     char buf[BUFF_SIZE];
 
-    if(fread(buf,sizeof(buf),1,stdin) != 1){
+    if(fread(buf,3,1,stdin) != 1){
 
 	if(ferror(stdin))exit(1);
     }
