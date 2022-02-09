@@ -8,6 +8,6 @@ int main(void){
     int i;
     for(i = 0; i < sizeof(string);i++){
 
-	fputc((int)string[i],stdout);
+        fputc((int)string[i],stdout);
     }
 }
