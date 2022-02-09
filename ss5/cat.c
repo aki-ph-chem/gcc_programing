@@ -8,8 +8,7 @@
 static void do_cat(const char *path);
 static void die(const char *s);
 
-int 
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
     int i;
 
@@ -30,8 +29,7 @@ main(int argc, char *argv[])
 
 #define BUFFER_SIZE 2048
 
-static void
-do_cat(const char *path)
+static void do_cat(const char *path)
 {
     int fd;
     unsigned char buf[BUFFER_SIZE];
@@ -39,25 +37,22 @@ do_cat(const char *path)
 
     fd = open(path, O_RDONLY);
     if(fd < 0) die(path);
-    
+
     for(;;) { 
-    
-    n = read(fd,buf, sizeof(buf));
-    if(n < 0) die(path);
-    if(n == 0) break; 
-    if(write(STDOUT_FILENO,buf,n) < 0) die(path);
-    
+
+	n = read(fd,buf, sizeof(buf));
+	if(n < 0) die(path);
+	if(n == 0) break; 
+	if(write(STDOUT_FILENO,buf,n) < 0) die(path);
+
     }
     if(close(fd) < 0) die(path);
 
 }
 
-    static void
-die(const char *s)
+static void die(const char *s)
 {
     perror(s);
     exit(1);
 }
 
-
-    
