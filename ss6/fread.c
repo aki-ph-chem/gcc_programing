@@ -10,8 +10,11 @@ int main(void){
 
     char buf[BUFF_SIZE];
 
-    fread(buf,2,1,stdin);
+    if(fread(buf,sizeof(buf),1,stdin) != 1){
 
-    fwrite(buf,2,1,stdout);
+	if(ferror(stdin))exit(1);
+    }
+
+    fwrite(buf,sizeof(buf),1,stdout);
     if(errno == 0)exit(1);
 }
