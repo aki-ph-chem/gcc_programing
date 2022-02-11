@@ -3,7 +3,7 @@ f=head
 ${f} : ${f}.c
 	gcc -Wall $< -o $@
 
-gdb : ${f}.c
+for_gdb : ${f}.c
 	gcc -g -Wall $< -o $@
 
 
