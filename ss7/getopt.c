@@ -15,6 +15,8 @@ int main(int argc, char* argv[]){
 	    case 'a':
 		// case a
 	        num = 114;	
+		printf("Index is %d\n",optind);
+		printf("Chara is %c\n",(char)optopt);
 		break;
 
 	    case 'f':
