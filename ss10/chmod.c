@@ -13,7 +13,7 @@ int main(int argc, char* argv[]){
 	exit(1);
     }
 
-    mode = strtol(argv[1],NULL,0);
+    mode = strtol(argv[1],NULL,8);
 
     for(i = 2; i < argc ;i++){
 
