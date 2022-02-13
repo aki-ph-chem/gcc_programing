@@ -40,3 +40,11 @@
 
 lsコマンドは特に困らず行けた
 
+mkdir, rmdirコマンドもok
+
+ハードリンク、シンボリックリンクもok
+
+stat,chmodもok
+
+
+
