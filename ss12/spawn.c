@@ -24,13 +24,24 @@ int main(int argc, char* argv[]){
     // child process
     if(pid == 0){
 
-	excel(argv[1],argv[1],argv[2],NULL);
+	execl(argv[1],argv[1],argv[2],NULL);
 	perror(argv[1]);
-	exit(1);
+	exit(99);
+     // parent process
     }else{
 
 	int status;
 
 	waitpid(pid,&status,0);
+	printf("child (PID=%d) finished;",pid );
+	
+	if(WIFEXITED(status))
+	    printf("exit, status%d\n",WEXITSTATUS(status));
+
+	else if(WIFSIGNALED(status))
+	    printf("signal, sig%d\n",WTERMSIG(status));
+	else
+	    printf("abnormal exit\n");
+	exit(0);
     }
 }
