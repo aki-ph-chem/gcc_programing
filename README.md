@@ -50,12 +50,20 @@ stat,chmodもok
 
 malloc() calloc() realloc()などのAPIを使った。
 
-## s12
+## ss12
 
 ふつうにfork()、wait()するのはできた。一方ダブルforkはうまく動かな買った。
 
 
 popen(),pclose()パイプを作るのはできた。一方、fork(),pipe()の方法
 はうまく動かなかった。dup()で作る方はわからなかった。 
+
+## ss13
+
+APIは理解したが使い方がいまいち
+
+## ss14
+
+pwdコマンドはok
 
 
