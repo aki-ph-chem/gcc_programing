@@ -1,7 +1,7 @@
-f=file
+f=main
 
 ${f} : ${f}.c
-	gcc =Wall $< -o $@
+	gcc -Wall $< -o $@
 
 
 clean :
