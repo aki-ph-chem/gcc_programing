@@ -9,4 +9,8 @@ static struct HTTPRequest* read_request(FILE* in);
 
 static void read_request_line(struct HTTPRequest *req,FILE *in);
 
+static long content_length(struct HTTPRequest* req);
+
+static char* lookup_header_field_value(struct HTTPRequest* req, char* name);
+
 #endif //_HTTP_H_
