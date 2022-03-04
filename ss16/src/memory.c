@@ -1,4 +1,7 @@
-static void* xmalloc(size_t sz){
+#include<stdlib.h>
+#include<memory.h>
+
+void* xmalloc(size_t sz){
 
     void* p;
 

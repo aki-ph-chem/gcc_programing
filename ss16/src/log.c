@@ -1,6 +1,9 @@
+#include<stdarg.h>
+#include<stdio.h>
+#include<log.h>
 
 // ...は可変引数の宣言
-static void log_exit(char* fmt,...){
+void log_exit(char* fmt,...){
 
     // (1) va_listの宣言
     va_list ap;

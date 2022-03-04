@@ -1,11 +1,15 @@
+#include<signal.h>
+#include<sig.h>
+#include<log.h>
+
 //signal処理１
-static void install_signal_handlers(void){
+void install_signal_handlers(void){
 
     trap_signal(SIGPIPE,signal_exit);
 }
 
 //signal処理2
-static void trap_signal(int sig, sighandler_t handler){
+void trap_signal(int sig, sighandler_t handler){
 
     struct sigaction act;
 
@@ -17,7 +21,7 @@ static void trap_signal(int sig, sighandler_t handler){
 }
 
 //signal処理3
-static void signal_exit(int sig){
+void signal_exit(int sig){
 
     log_exit("exit by signal %d",sig);
 }

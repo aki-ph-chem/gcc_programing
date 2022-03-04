@@ -1,5 +1,11 @@
+#include<http.h>
+#include<string.h>
+#include<log.h>
+#include<memory.h>
+
+
 //メモリ開放
-static void free_request(struct HTTPRequest* req){
+void free_request(struct HTTPRequest* req){
 
     struct HTTPHeaderField *h,*head;
 
@@ -20,7 +26,7 @@ static void free_request(struct HTTPRequest* req){
 }
 
 //リクエストを読む
-static struct HTTPRequest* read_request(FILE* in){
+struct HTTPRequest* read_request(FILE* in){
 
     struct HTTPRequest*  req;
     struct HTTPHeader*  h;
@@ -50,7 +56,7 @@ static struct HTTPRequest* read_request(FILE* in){
 }
 
 //リクエストを読む(2)
-static void read_request_line(struct HTTPRequest *req,FILE *in){
+void read_request_line(struct HTTPRequest *req,FILE *in){
 
     char* buf[LINE_BUF_SIZE];
     char *path,*p;
@@ -78,7 +84,7 @@ static void read_request_line(struct HTTPRequest *req,FILE *in){
     req->protocol_minor_version = atoi(p);
 }
 
-static struct HTTPHeaderField* read_header_field(FILE* in){
+struct HTTPHeaderField* read_header_field(FILE* in){
 
     struct HTTPHeaderField* h;
     char buf[LINE_BUF_SIZE];
@@ -105,7 +111,7 @@ static struct HTTPHeaderField* read_header_field(FILE* in){
     return h;
 }
 
-static long content_length(struct HTTPRequest* req){
+long content_length(struct HTTPRequest* req){
 
     char* val;
     long  len;
@@ -117,7 +123,7 @@ static long content_length(struct HTTPRequest* req){
     return len;
 }
 
-static char* lookup_header_field_value(struct HTTPRequest *req,char* name){
+char* lookup_header_field_value(struct HTTPRequest *req,char* name){
 
     struct HTTPRequest* h;
 

@@ -1,8 +1,9 @@
 #ifndef _LOG_H_
 #define _LOG_H_ 
 
-#include<stdarg.h>
+#include<stdarg.t>
+#include<stdio.h>
 
-static void log_exit(char* fmt,...);
+void log_exit(char* fmt,...);
 
 #endif //_LOG_H_
