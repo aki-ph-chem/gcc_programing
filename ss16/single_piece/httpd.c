@@ -1,13 +1,3 @@
-/*
-    httpd.c
-    
-    Copyright (c) 2004,2005,2017 Minero Aoki
-
-    This program is free software.
-    Redistribution and use in source and binary forms,
-    with or without modification, are permitted.
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -55,12 +45,14 @@ struct FileInfo {
 };
 
 /****** Function Prototypes **********************************************/
-
+// signal
 typedef void (*sighandler_t)(int);
 static void install_signal_handlers(void);
 static void trap_signal(int sig, sighandler_t handler);
 static void signal_exit(int sig);
+// service
 static void service(FILE *in, FILE *out, char *docroot);
+// HTTP request 
 static struct HTTPRequest* read_request(FILE *in);
 static void read_request_line(struct HTTPRequest *req, FILE *in);
 static struct HTTPHeaderField* read_header_field(FILE *in);
@@ -68,6 +60,7 @@ static void upcase(char *str);
 static void free_request(struct HTTPRequest *req);
 static long content_length(struct HTTPRequest *req);
 static char* lookup_header_field_value(struct HTTPRequest *req, char *name);
+// HTTP respons
 static void respond_to(struct HTTPRequest *req, FILE *out, char *docroot);
 static void do_file_response(struct HTTPRequest *req, FILE *out, char *docroot);
 static void method_not_allowed(struct HTTPRequest *req, FILE *out);
@@ -78,6 +71,7 @@ static struct FileInfo* get_fileinfo(char *docroot, char *path);
 static char* build_fspath(char *docroot, char *path);
 static void free_fileinfo(struct FileInfo *info);
 static char* guess_content_type(struct FileInfo *info);
+// log and memory
 static void* xmalloc(size_t sz);
 static void log_exit(char *fmt, ...);
 
@@ -95,6 +89,7 @@ main(int argc, char *argv[])
     exit(0);
 }
 
+// signal
 static void
 install_signal_handlers(void)
 {
