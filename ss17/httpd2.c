@@ -166,6 +166,7 @@ main(int argc, char *argv[])
     exit(0);
 }
 
+// chroot()する
 static void
 setup_environment(char *root, char *user, char *group)
 {
