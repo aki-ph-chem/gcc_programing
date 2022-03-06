@@ -114,6 +114,8 @@ signal_exit(int sig)
     log_exit("exit by signal %d", sig);
 }
 
+// server 
+
 static void
 service(FILE *in, FILE *out, char *docroot)
 {
@@ -123,6 +125,8 @@ service(FILE *in, FILE *out, char *docroot)
     respond_to(req, out, docroot);
     free_request(req);
 }
+
+// read HTTPReauest
 
 static struct HTTPRequest*
 read_request(FILE *in)
@@ -257,6 +261,8 @@ lookup_header_field_value(struct HTTPRequest *req, char *name)
     }
     return NULL;
 }
+
+// respons of HTTPRequest
 
 static void
 respond_to(struct HTTPRequest *req, FILE *out, char *docroot)
