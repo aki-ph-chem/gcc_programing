@@ -237,6 +237,7 @@ trap_signal(int sig, sighandler_t handler)
     }
 }
 
+//ゾンビ対策(wait()しないことをカーネルに伝える) 
 static void
 detach_children(void)
 {
